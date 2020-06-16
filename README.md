@@ -13,6 +13,7 @@ Netra is a research project that brings together the power of the cloud and NETR
 - Integrated with caption generated API
 
 
+
 # Dependencies
 
 - [Flutter](https://flutter.dev/)
@@ -27,3 +28,15 @@ Netra is a research project that brings together the power of the cloud and NETR
 - [Flutter Spinkit](https://pub.dev/packages/flutter_spinkit)
 - [Flutter Bloc](https://pub.dev/packages/flutter_bloc)
 - [Flip Card](https://pub.dev/packages/flip_card)
+
+
+
+# Getting Started
+
+- [Flutter Setup](https://flutter.dev/docs/get-started/install)
+- Clone Repository
+      - $ git clone https://github.com/Riya28042000/Netra.git
+      - $ cd Netra/
+      - flutter run
+      
+      
