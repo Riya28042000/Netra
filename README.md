@@ -14,3 +14,16 @@ Netra is a research project that brings together the power of the cloud and NETR
 
 
 # Dependencies
+
+- [Flutter](https://flutter.dev/)
+- [Image Picker](https://pub.dev/packages/image_picker)
+- [HTTP](https://pub.dev/packages/http)
+- [Dio](https://pub.dev/packages/dio)
+- [HTTP Parser](https://pub.dev/packages/http_parser)
+- [Flutter Material Design Icon](https://pub.dev/packages/material_design_icons_flutter)
+- [Shared Preferences](https://pub.dev/packages/shared_preferences)
+- [Splash Screen](https://pub.dev/packages/splashscreen)
+- [Flutter TTS](https://pub.dev/packages/flutter_tts)
+- [Flutter Spinkit](https://pub.dev/packages/flutter_spinkit)
+- [Flutter Bloc](https://pub.dev/packages/flutter_bloc)
+- [Flip Card](https://pub.dev/packages/flip_card)
