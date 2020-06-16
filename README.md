@@ -35,8 +35,8 @@ Netra is a research project that brings together the power of the cloud and NETR
 
 1. [Flutter Setup](https://flutter.dev/docs/get-started/install)
 2. Clone Repository
-   $ git clone https://github.com/Riya28042000/Netra.git
-   $ cd Netra/
-   flutter run
+   a.  $ git clone https://github.com/Riya28042000/Netra.git
+   b.  $ cd Netra/
+   c.  flutter run
       
       
