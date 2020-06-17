@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/material.dart';
-import 'package:netra/home/home.dart';
 import 'package:netra/menu_dashboard/menu_dashboard.dart';
+import 'package:netra/query/query.dart';
 
 class Product extends StatefulWidget {
   File image;
@@ -25,11 +25,11 @@ class _ProductState extends State<Product> {
     // print(response.predictions[0].caption);
     //print('rgarg');
   }
-  TextEditingController _controller = TextEditingController();
+
   bool isPlaying = false;
   FlutterTts _flutterTts;
 
- void initState() {
+  void initState() {
     super.initState();
     initializeTts();
   }
@@ -107,30 +107,30 @@ class _ProductState extends State<Product> {
       });
   }
 
-void MoveToLastScreen(){
-   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                            MenuDashboardLayout()), (Route<dynamic> route) => false);
-}
-
-  
+  void MoveToLastScreen() {
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => MenuDashboardLayout()),
+        (Route<dynamic> route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-       onWillPop:(){
-                    MoveToLastScreen();
-       },
-          child: Scaffold(
-        resizeToAvoidBottomInset: false,
+      onWillPop: () {
+        MoveToLastScreen();
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
         resizeToAvoidBottomPadding: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.blue[900],
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                            MenuDashboardLayout()), (Route<dynamic> route) => false)
-          ),
+              icon: Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (context) => MenuDashboardLayout()),
+                  (Route<dynamic> route) => false)),
           title: Text(
             "Product",
             style: TextStyle(
@@ -143,235 +143,167 @@ void MoveToLastScreen(){
         ),
         body: Column(
           children: <Widget>[
-            chat(),
-           // chatInput(),
-            // SizedBox(
-            //   height: 15.0,
-            //   child: Container(
-            //       decoration: BoxDecoration(
-            //     color: Colors.blue[900],
-            //   )),
-            // )
-          ],
-        ),
-      ),
-    );
-  }
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    //               child: Row(
 
-  // Widget chatInput() {
-  //   return Container(
-  //     decoration: BoxDecoration(
-  //         color: Colors.blue[900],
-  //         borderRadius: BorderRadius.only(
-  //           topLeft: Radius.circular(20),
-  //           topRight: Radius.circular(20),
-  //         )),
-  //     height: 50.0,
-  //     //r  margin: const EdgeInsets.symmetric(horizontal: 8.0),
-  //     padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-  //     child: Row(
-  //       children: <Widget>[
-  //         Flexible(
-  //           child: new ConstrainedBox(
-  //             constraints: new BoxConstraints(
-  //               //   minWidth: size.width,
-  //               // maxWidth: size.width,
-  //               //  minHeight: 25.0,
-  //               maxHeight: 150.0,
-  //             ),
-  //             child: Scrollbar(
-  //               child: new TextField(
-  //                   style: new TextStyle(color: Colors.white),
-  //                   controller: _controller,
-  //                   keyboardType: TextInputType.multiline,
-  //                   autofocus: false,
+                    //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-  //                   // onSubmitted: ,
+                    //                   mainAxisSize: MainAxisSize.max,
 
-  //                   decoration: InputDecoration(
-  //                     hintText: "Ask Query",
-  //                     enabledBorder: UnderlineInputBorder(
-  //                       borderSide: BorderSide(color: Colors.white),
-  //                     ),
-  //                     focusedBorder: UnderlineInputBorder(
-  //                       borderSide: BorderSide(color: Colors.white),
-  //                     ),
-  //                     focusColor: Colors.white,
+                    //                   children: [
 
-  //                     hintStyle: TextStyle(
-  //                         color: Colors.white,
-  //                         fontFamily: 'Crimson Text',
-  //                         fontSize: 16),
+                    //                         IconButton(
+                    //   icon: Icon(Icons.arrow_back),
+                    //   color: Colors.black,
+                    //   onPressed: () {Navigator.pop(context);},
+                    // ),
 
-  //                     filled: true,
+                    //                Center(child: Text("Product", style: TextStyle(fontSize: 24, color: Colors.black))),
 
-  //                     fillColor: Colors.blue[900],
+                    //           Icon(Icons.picture_in_picture, color: Colors.black),
 
-  //                     //   enabledBorder: Constants.border,
+                    //                   ],
 
-  //                     // disabledBorder: Constants.
-  //                   )),
-  //             ),
-  //           ),
-  //         ),
-  //         new Container(
-  //           margin: new EdgeInsets.only(left: 5.0, right: 5.0),
-  //           child: RawMaterialButton(
-  //             onPressed: () {},
-  //             child: new Icon(
-  //               Icons.send,
-  //               color: Colors.white,
-  //             ),
-  //             fillColor: Colors.blue[900],
-  //             shape: CircleBorder(),
-  //             elevation: 0.0,
-  //           ),
-  //           constraints: BoxConstraints(minWidth: 40, minHeight: 40),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+                    //               ),
 
-  Widget chat() {
-    return Expanded(
-     child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            //               child: Row(
+                    SizedBox(height: 10),
 
-            //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    image == null
+                        ? Text('')
+                        : Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 5.0,
+                                ),
+                                // boxShadow: [
+                                //   BoxShadow(
+                                //     color: Colors.black.withOpacity(0.8),
+                                //     spreadRadius: 10,
+                                //     blurRadius: 5,
+                                //     offset: Offset(0, 7), // changes position of shadow
+                                //   ),
+                                // ],
+                              ),
+                              child: Image.file(
+                                image,
+                                fit: BoxFit.fill,
+                                height: 450.0,
+                                alignment: Alignment.topCenter,
+                                width: MediaQuery.of(context).size.width,
+                              ),
+                            ),
+                          ),
 
-            //                   mainAxisSize: MainAxisSize.max,
+                    SizedBox(height: 10),
 
-            //                   children: [
-
-            //                         IconButton(
-            //   icon: Icon(Icons.arrow_back),
-            //   color: Colors.black,
-            //   onPressed: () {Navigator.pop(context);},
-            // ),
-
-            //                Center(child: Text("Product", style: TextStyle(fontSize: 24, color: Colors.black))),
-
-            //           Icon(Icons.picture_in_picture, color: Colors.black),
-
-            //                   ],
-
-            //               ),
-
-            SizedBox(height: 10),
-
-            image == null
-                ? Text('')
-                : Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
+                    Center(
+                      child: Container(
+                        decoration: BoxDecoration(
                           color: Colors.black,
-                          width: 5.0,
                         ),
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     color: Colors.black.withOpacity(0.8),
-                        //     spreadRadius: 10,
-                        //     blurRadius: 5,
-                        //     offset: Offset(0, 7), // changes position of shadow
-                        //   ),
-                        // ],
-                      ),
-                      child: Image.file(
-                        image,
-                        fit: BoxFit.fill,
-                        height: 450.0,
-                        alignment: Alignment.topCenter,
-                        width: MediaQuery.of(context).size.width,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            response[0]['caption'],
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Crimson Text',
+                              fontSize: 20,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
 
-            SizedBox(height: 10),
+                    SizedBox(height: 10),
 
-            Center(
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      response[0]['caption'],
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Crimson Text',
-                        fontSize: 20,
+                    Container(
+                      child: Stack(
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 3.0, horizontal: 16.0),
+                            margin: const EdgeInsets.only(
+                                left: 130.0, right: 30.0, bottom: 20.0),
+                            child: FlatButton(
+                              onPressed: () {
+                                //fetch another image
+                                setState(() {
+                                  //speechSettings1();
+                                  isPlaying
+                                      ? _stop()
+                                      : _speak(response[0]['caption']);
+                                });
+                              },
+                              child: isPlaying
+                                  ? Icon(
+                                      Icons.stop,
+                                      size: 60,
+                                      color: Colors.blue[900],
+                                    )
+                                  : Icon(
+                                      Icons.play_arrow,
+                                      size: 60,
+                                      color: Colors.black,
+                                    ),
+                            ),
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                     
-                       ),
-                 
-                  ),
-            ),
 
-                 SizedBox(height: 10),
-
-                     Container(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            padding:
-                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
-            margin: const EdgeInsets.only(
-                 left: 130.0, right: 30.0, bottom: 20.0),
-            child: FlatButton(
-              onPressed: () {
-                //fetch another image
-                setState(() {
-                  //speechSettings1();
-                  isPlaying ? _stop() : _speak(response[0]['caption']);
-                });
-              },
-              child: isPlaying
-                  ? Icon(
-                      Icons.stop,
-                      size: 60,
-                      color: Colors.blue[900],
-                    )
-                  : Icon(
-                      Icons.play_arrow,
-                      size: 60,
-                      color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.all(1),
+                      child: new GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Query()),
+                          );
+                        },
+                        child: Center(
+                            child: new Text(
+                          "Click Here For Any Query",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontFamily: 'Crimson Text',
+                              fontWeight: FontWeight.bold),
+                        )),
+                      ),
                     ),
+                    SizedBox(height: 10)
+                    // SizedBox(height: 05),
+
+                    // new Container(
+                    //   decoration: BoxDecoration(
+                    //       color: Colors.white,
+                    //       borderRadius: BorderRadius.only(
+                    //           topLeft: Radius.circular(20),
+                    //           topRight: Radius.circular(20))),
+                    //   constraints: BoxConstraints(maxHeight: 150.0),
+                    //   padding:
+                    //       const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                    // ),
+                    // SizedBox(height:10),
+
+                    //Chat list
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
-      ),
-    ),
-
-
-            SizedBox(height: 50),
-
-            new Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
-              constraints: BoxConstraints(maxHeight: 150.0),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-            ),
-            
-
           ],
         ),
-    ),
+      ),
     );
   }
-
-  
 }

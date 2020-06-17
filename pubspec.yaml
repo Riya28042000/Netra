@@ -28,6 +28,8 @@ dependencies:
   splashscreen:
   flutter_tts:
   flutter_spinkit:
+  intl:
+  fluttertoast:
   
 
 
