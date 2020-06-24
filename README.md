@@ -31,6 +31,12 @@ Netra is a research project that brings together the power of the cloud and NETR
 
 
 
+# Snapshots
+
+![NETRA](https://user-images.githubusercontent.com/65823846/85587542-7d62d980-b65f-11ea-969a-6198e467a62e.gif)
+
+
+
 # Getting Started
 
 - [Flutter Setup](https://flutter.dev/docs/get-started/install)
